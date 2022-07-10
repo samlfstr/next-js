@@ -1,4 +1,3 @@
-import styles from '../styles/Text.module.css';
 import { useRouter } from 'next/router'
 
 export default function Text(){

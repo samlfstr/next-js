@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Cards from "./components/Cards";
+import Cards from "./cardhanler/Cards";
 
 export default function Home() {
 
