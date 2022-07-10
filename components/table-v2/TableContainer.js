@@ -20,16 +20,16 @@ export default function TableContainer({columns, data}) {
   console.log(getTableProps())
   console.log(getTableBodyProps())
   return (
-    <table {...getTableProps()}>
+    <table className="uppercase" {...getTableProps()}>
       <thead>
       {
         headerGroups.map((headerGroup) => (
             // eslint-disable-next-line react/jsx-key
-            <tr {...headerGroup.getHeaderGroupProps()} >
+            <tr className="bg-gray-400" {...headerGroup.getHeaderGroupProps()} >
               {
                 headerGroup.headers.map((column) => (
                     // eslint-disable-next-line react/jsx-key
-                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                    <th className="border-2 border-black p-2" {...column.getHeaderProps()}>{column.render("Header")}</th>
                   )
                 )
               }
@@ -43,11 +43,11 @@ export default function TableContainer({columns, data}) {
         rows.map(row => { prepareRow(row)
         return (
           // eslint-disable-next-line react/jsx-key
-          <tr {...row.getRowProps()}>
+          <tr className="bg-gray-200" {...row.getRowProps()}>
             {
               row.cells.map(cell => {
                 // eslint-disable-next-line react/jsx-key
-                return <td {...cell.getCellProps()}> {cell.render("Cell")} </td>})
+                return <td className="border-2 border-black p-2" {...cell.getCellProps()}> {cell.render("Cell")} </td>})
             }
           </tr>
         )
