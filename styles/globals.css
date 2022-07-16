@@ -1,5 +1,9 @@
 html,
 body {
+  background-color: #ffeaa7;
+  background-image: linear-gradient(315deg, rgba(255, 234, 167, 0.56) 0%, rgba(0, 0, 0, 0.77) 74%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -13,4 +17,43 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.numbers {
+  @apply rounded-xl p-5 w-14 text-center;
+  transition: 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.30s ease-in-out, box-shadow 0.30s ease-in-out, -webkit-box-shadow 0.30s ease-in-out;
+  border: 1px solid rgba(247, 157, 0, 0.57);
+  color: #eece97;
+}
+.numbers:hover{
+  background: darkgoldenrod;
+  cursor:pointer;
+  color: black;
+}
+
+.numbers:active{
+  background: lightgoldenrodyellow;
+  cursor:pointer;
+}
+
+.counterContainer {
+  @apply col-start-1 text-center col-span-3 flex justify-center;
+}
+
+.counter{
+  @apply text-xs bg-amber-50 w-4 mx-0.5;
+  border: 1px solid #eece97;
+  background: darkgoldenrod;
+  color: white;
+}
+
+.counter:hover{
+  background: gold;
+  cursor:pointer;
+  color: black;
+}
+
+.counter:active{
+  background: lightgoldenrodyellow;
+  cursor:pointer;
 }
