@@ -32,13 +32,14 @@ export default function TicTac() {
       if (board % 2 === 0) {
         if (Array.isArray(O)) {
           O.push(number);
-          for (let i = 0; i < winningCases.length; i++) {
-            if (O.toString() === winningCases[i].toString()) {
-              alert("O wins");
+          for (const winningCasesKey in winningCases) {
+            console.log(winningCases);
+            console.log(O)
+            if (winningCases.toString().includes(O.toString()) && O.length > 2) {
+              console.log("O wins");
             }
           }
         }
-        console.log(O)
 
         event.target.innerText = "O";
         setBoard(board + 1);
@@ -51,7 +52,6 @@ export default function TicTac() {
             }
           }
         }
-        console.log(O)
         event.target.innerText = "X";
         setBoard(board + 1);
       }
