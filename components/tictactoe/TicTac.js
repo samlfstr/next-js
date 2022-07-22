@@ -28,15 +28,17 @@ export default function TicTac() {
       item.setAttribute('class', 'counter');
       item.innerText = `${board}`;
       x.appendChild(item);
+      let intersection = [];
 
       if (board % 2 === 0) {
         if (Array.isArray(O)) {
           O.push(number);
-          for (const winningCasesKey in winningCases) {
-            console.log(winningCases);
-            console.log(O)
-            if (winningCases.toString().includes(O.toString()) && O.length > 2) {
-              console.log("O wins");
+          for (let i=0; i < winningCases.length; i++) {
+            intersection = O.filter(x=>winningCases[i].includes(x));
+            console.log("Intersection " + intersection);
+            console.log("Winning Cases" + winningCases[i]);
+            if (winningCases[i].toString() === intersection.toString()){
+              alert("O wins");
             }
           }
         }
@@ -46,8 +48,9 @@ export default function TicTac() {
       } else {
         if (Array.isArray(X)) {
           X.push(number);
-          for (let i = 0; i < winningCases.length; i++) {
-            if (X.toString() === winningCases[i].toString()) {
+          for (let i=0; i < winningCases.length; i++) {
+            intersection = X.filter(x=>winningCases[i].includes(x));
+            if (winningCases[i].toString() === intersection.toString()){
               alert("X wins");
             }
           }
