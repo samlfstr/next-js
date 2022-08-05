@@ -57,3 +57,16 @@ a {
   background: lightgoldenrodyellow;
   cursor:pointer;
 }
+
+.resetBtn{
+  @apply rounded-xl p-1 w-20 text-center;
+  transition: 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.30s ease-in-out, box-shadow 0.30s ease-in-out, -webkit-box-shadow 0.30s ease-in-out;
+  border: 1px solid rgba(247, 157, 0, 0.57);
+  color: #eece97;
+}
+
+.resetBtn:hover{
+  background: darkgoldenrod;
+  cursor:pointer;
+  color: black;
+}

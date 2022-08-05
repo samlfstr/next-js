@@ -7,7 +7,7 @@ export default function TicTac() {
   const [X, setX] = useState([]);
   const [O, setO] = useState([]);
 
-  const onClickElem = async (event, number) => {
+  const onClickElem = (event, number) => {
     let x = document.querySelector(".counterContainer");
 
     //Store all the winning cases in an array
@@ -31,36 +31,48 @@ export default function TicTac() {
       let intersection = [];
 
       if (board % 2 === 0) {
+        event.target.innerText = "O";
+        setBoard(board + 1);
         if (Array.isArray(O)) {
           O.push(number);
-          for (let i=0; i < winningCases.length; i++) {
-            intersection = O.filter(x=>winningCases[i].includes(x));
+          for (let i = 0; i < winningCases.length; i++) {
+            intersection = O.filter(x => winningCases[i].includes(x));
             console.log("Intersection " + intersection);
             console.log("Winning Cases" + winningCases[i]);
-            if (winningCases[i].toString() === intersection.toString()){
+            if (winningCases[i].toString() === intersection.toString()) {
               alert("O wins");
             }
           }
         }
-
-        event.target.innerText = "O";
-        setBoard(board + 1);
       } else {
+        event.target.innerText = "X";
+        setBoard(board + 1);
         if (Array.isArray(X)) {
           X.push(number);
-          for (let i=0; i < winningCases.length; i++) {
-            intersection = X.filter(x=>winningCases[i].includes(x));
-            if (winningCases[i].toString() === intersection.toString()){
+          for (let i = 0; i < winningCases.length; i++) {
+            intersection = X.filter(x => winningCases[i].includes(x));
+            if (winningCases[i].toString() === intersection.toString()) {
               alert("X wins");
             }
           }
         }
-        event.target.innerText = "X";
-        setBoard(board + 1);
       }
       setNum(num.concat(number));
     }
   };
+
+  const onReset = () => {
+    let x = document.querySelector(".counterContainer");
+    let numbers = document.querySelectorAll(".numbers");
+    numbers.forEach(function (item) {
+      item.innerText = ".";
+    });
+    x.innerHTML = "";
+    setBoard(1);
+    setNum([]);
+    setX([]);
+    setO([]);
+  }
 
 
   return (
@@ -111,9 +123,15 @@ export default function TicTac() {
           onClick={event => onClickElem(event, 9)}>
           <p>.</p>
         </div>
-
         <div className="counterContainer">
-          <div className="counter">0</div>
+
+        </div>
+        <div
+          className="counterContainer"
+          onClick={() => {
+            onReset()
+          }}>
+          <div className="resetBtn">Reset</div>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const getData = () => [
   {
     name: "Cody Fisher",
     email: "cody.fisher@example.com",
-    title: "Product Directives Officer",
+    title: "Id Directives Officer",
     department: "Intranet",
     status: "Active",
     role: "Owner",
